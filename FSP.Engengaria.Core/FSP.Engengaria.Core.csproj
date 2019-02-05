@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE67EB97-7DFF-4C93-B843-91A387FD73B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FSP.Engengaria.Core</RootNamespace>
+    <AssemblyName>FSP.Engengaria.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DomainValidation.1.0.0\lib\net453\DomainValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.3.0\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.4.3.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.4.3.0\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=4.3.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.WebApi.4.3.0\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Application\Adapter\ObraAdapter.cs" />
+    <Compile Include="Application\ApplicationServiceTransaction.cs" />
+    <Compile Include="Application\AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="Application\AutoMapper\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="Application\AutoMapper\ViewModelToDomainMappingProfile.cs" />
+    <Compile Include="Application\Help\Mensagem.cs" />
+    <Compile Include="Application\Interface\IFSPAppService.cs" />
+    <Compile Include="Application\Services\FSPAppService.cs" />
+    <Compile Include="Application\Validation\ValidationResultViewModel.cs" />
+    <Compile Include="Application\ViewModels\PedidoMaterialViewModel.cs" />
+    <Compile Include="Application\ViewModels\ObraViewModel.cs" />
+    <Compile Include="Application\ViewModels\FornecedorViewModel.cs" />
+    <Compile Include="Application\ViewModels\ItemServicoViewModel.cs" />
+    <Compile Include="Application\ViewModels\ServicoViewModel.cs" />
+    <Compile Include="Application\ViewModels\EstadoViewModel.cs" />
+    <Compile Include="Application\ViewModels\StatusObraViewModel.cs" />
+    <Compile Include="Domain\Entity\Fornecedor.cs" />
+    <Compile Include="Domain\Entity\ItemServico.cs" />
+    <Compile Include="Domain\Entity\Itenizacao.cs" />
+    <Compile Include="Domain\Entity\PedidoMaterial.cs" />
+    <Compile Include="Domain\Entity\Servico.cs" />
+    <Compile Include="Domain\Entity\Obra.cs" />
+    <Compile Include="Domain\Interface\Repository\IFornecedorRepository.cs" />
+    <Compile Include="Domain\Interface\Repository\IItemServicoRepository.cs" />
+    <Compile Include="Domain\Interface\Repository\IServicoRepository.cs" />
+    <Compile Include="Domain\Interface\Repository\IObraRepository.cs" />
+    <Compile Include="Domain\Interface\Repository\IRepository.cs" />
+    <Compile Include="Domain\Interface\Service\IFornecedorService.cs" />
+    <Compile Include="Domain\Interface\Service\IItemServicoService.cs" />
+    <Compile Include="Domain\Interface\Service\IServicoService.cs" />
+    <Compile Include="Domain\Interface\Service\IObraService.cs" />
+    <Compile Include="Domain\Services\FornecedorService.cs" />
+    <Compile Include="Domain\Services\ItemServicoService.cs" />
+    <Compile Include="Domain\Services\ServicoService.cs" />
+    <Compile Include="Domain\Services\ObraService.cs" />
+    <Compile Include="Domain\Specifications\ItemServico\ItemServicoDevePossuirUmaObraSpecification.cs" />
+    <Compile Include="Domain\Specifications\ItemServico\ItemServicoDevePossuirUmServicoSpecification.cs" />
+    <Compile Include="Domain\Specifications\ItemServico\ItemServicoDevePossuirValorUnitarioSpecification.cs" />
+    <Compile Include="Domain\Specifications\Itenizacoes\ItenizacaoDevePossuirValorUnitarioSpecification.cs" />
+    <Compile Include="Domain\Specifications\Itenizacoes\ItenizacaoDevePossuirUmServicoSpecification.cs" />
+    <Compile Include="Domain\Specifications\Itenizacoes\ItenizacaoDevePossuirUmaObraSpecification.cs" />
+    <Compile Include="Domain\Specifications\Fornecedores\FornecedorDeveTerCNPJValidoSpecification.cs" />
+    <Compile Include="Domain\Specifications\Obras\ObraDeveTerUmaUFSpecification.cs" />
+    <Compile Include="Domain\Specifications\Obras\ObraDeveTerUmNomeSpecification.cs" />
+    <Compile Include="Domain\Specifications\Obras\ObraDeveTerUmaSituacaoSpecification.cs" />
+    <Compile Include="Domain\Specifications\Obras\ObraDeveTerUmObjetoSpecification.cs" />
+    <Compile Include="Domain\Specifications\Fornecedores\FornecedorDevePossuirCNPJUnicoSpecification.cs" />
+    <Compile Include="Domain\Specifications\Servicos\ServicoDeveTerUmValorSpecification.cs" />
+    <Compile Include="Domain\Specifications\Servicos\ServicoDeveTerUmPercentualSpecification.cs" />
+    <Compile Include="Domain\Validations\Documentos\CNPJValidation.cs" />
+    <Compile Include="Domain\Validations\Documentos\CPFValidation.cs" />
+    <Compile Include="Domain\Validations\Documentos\EmailValidation.cs" />
+    <Compile Include="Domain\Validations\Fornecedores\FornecedorEstaConsistenteValidation.cs" />
+    <Compile Include="Domain\Validations\Fornecedores\FornecedorAptoParaCadastroValidation.cs" />
+    <Compile Include="Domain\Validations\ItemServico\ItemServicoEstaConsistenteValidation.cs" />
+    <Compile Include="Domain\Validations\Obras\ObraEstaConsistenteValidation.cs" />
+    <Compile Include="Domain\Validations\Itenizacoes\ItenizacaoEstaConsistenteValidation.cs" />
+    <Compile Include="Domain\Validations\Servicos\ServicoEstaConsistenteValidation.cs" />
+    <Compile Include="Infra\Data\Context\FSPContext.cs" />
+    <Compile Include="Infra\Data\EntityConfig\FornecedorConfig.cs" />
+    <Compile Include="Infra\Data\EntityConfig\ItemServicoConfig.cs" />
+    <Compile Include="Infra\Data\EntityConfig\ServicoConfig.cs" />
+    <Compile Include="Infra\Data\EntityConfig\ObraConfig.cs" />
+    <Compile Include="Infra\Data\Interface\IUnitOfWorkTransaction.cs" />
+    <Compile Include="Infra\Data\Repository\FornecedorRepository.cs" />
+    <Compile Include="Infra\Data\Repository\ItemServicoRepository.cs" />
+    <Compile Include="Infra\Data\Repository\ServicoRepository.cs" />
+    <Compile Include="Infra\Data\Repository\ObraRepository.cs" />
+    <Compile Include="Infra\Data\Repository\Repository.cs" />
+    <Compile Include="Infra\Data\Repository\SQL\ComandoSqlItemServico.cs" />
+    <Compile Include="Infra\Data\Repository\SQL\ComandoSqlServico.cs" />
+    <Compile Include="Infra\Data\Repository\SQL\ComandoSqlObra.cs" />
+    <Compile Include="Infra\Data\UoW\UnitOfWorkTransaction.cs" />
+    <Compile Include="Infra\IoC\BootStrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

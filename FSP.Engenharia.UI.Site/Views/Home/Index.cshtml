@@ -1,0 +1,128 @@
+﻿<style type="text/css">
+    .btn-squared-default {
+        width: 120px !important;
+        height: 115px !important;
+    }
+
+    .home-list h3 {
+        font-size: 15px;
+        margin: 0 0 6px;
+        color: #5A738E;
+    }
+
+    .home-list hr {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .home-list {
+        margin-bottom: 18px;
+    }
+
+    .boxImg {
+        /*definimos a largura do box*/
+        width: 300px;
+        /* definimos a altura do box */
+        height: 100px;
+        /* definimos a cor de fundo do box */
+        /* definimos o quão arredondado irá ficar nosso box */
+        border-radius: 10px 20px;
+    }
+
+    .iconesCentro {
+        margin-left: 120px;
+    }
+</style>
+<!-- Info boxes -->
+<div class="row">
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+    <!-- /.col -->
+    <div class="col-md-12">
+        <h4>Panel de Controle - Sistema de Orçamento e Controle de Obras</h4>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+        <!-- MAP & BOX PANE -->
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <div class="info-box-content">
+                    <div class="row">
+                        <div class="col-lg-12 home-list iconesCentro">
+                            <div class="col-md-2">
+                                <a routerLink="/obras" title="Cadastro de Obras" class="btn btn-squared-default btn-default boxImg">
+                                    <img src="~/Content/assets/img/material.png">
+                                    <hr />
+                                    <h3>Obras</h3>
+                                </a>
+                            </div>
+
+                            <div class="col-md-2">
+                                <a routerLink="/fornecedor" class="btn btn-squared-default btn-default boxImg desabilitar">
+                                    <img src="~/Content/assets/img/corpodocente.png">
+                                    <hr />
+                                    <h3>Fornecedores</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a routerLink="/cronograma" class="btn btn-squared-default btn-default boxImg desabilitar">
+                                    <img src="~/Content/assets/img/frequencia.png">
+                                    <hr />
+                                    <h3>Cronograma</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a routerLink="/estimativaorcamento" class="btn btn-squared-default btn-default boxImg desabilitar">
+                                    <img src="~/Content/assets/img/avaliacao.png">
+                                    <hr />
+                                    <h3>Estimativa <br />Orçamento</h3>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 home-list iconesCentro">
+                            <div class="col-md-2">
+                                <a routerLink="/pedidomaterial" class="btn btn-squared-default btn-default boxImg desabilitar">
+                                    <img src="~/Content/assets/img/certificado.png">
+                                    <hr />
+                                    <h3>
+                                        Pedido
+                                        <br />Material
+                                    </h3>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="#" class="btn btn-squared-default btn-default boxImg desabilitar">
+                                    <img src="~/Content/assets/img/relatorio.png">
+                                    <hr />
+                                    <h3>Relatórios</h3>
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                <a routerLink="/itenizacao" title="Itenização" class="btn btn-squared-default btn-default boxImg">
+                                    <img src="~/Content/assets/img/curriculo.png">
+                                    <hr />
+                                    <h3>Itenização</h3>
+                                </a>
+                            </div>
+
+                            <div class="col-md-2">
+                                <a routerLink="/orcamento" class="btn btn-squared-default btn-default boxImg desabilitar">
+                                    <img src="~/Content/assets/img/notas.png">
+                                    <hr />
+                                    <h3>Orçamento</h3>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->

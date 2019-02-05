@@ -1,0 +1,79 @@
+﻿@model IEnumerable<FSP.Engengaria.Core.Application.ViewModels.FornecedorViewModel>
+
+@{
+    ViewBag.Title = "Lista de Fornecedores";
+}
+
+<script src="~/CoresJs/fornecedor/Consulta.js"></script>
+
+<style type="text/css">
+    .btn {
+        border: 0 !important;
+        border-radius: 3px !important;
+        margin-top: 0px !important;
+    }
+    .box-footer {
+        background-color: transparent !important;
+        margin-top: 40px !important;
+    }
+</style>
+
+<!-- Info boxes -->
+<div class="row">
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+    <!-- /.col -->
+    <div class="col-md-12">
+        <h4>@ViewBag.Title</h4>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+        <!-- MAP & BOX PANE -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <div class="well" style="overflow: auto">
+                    <div class="form-group">
+                        <label class="control-label col-md-1" style="margin-top:1px; text-align:right">Fornecedor:</label>
+                        <div class="col-md-6">
+                            <input name="fornecedor" id="tbNomeFornecedor" class="form-control" placeholder="Digite o nome da Fornecedor" />
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <div class="col-md-3" style="margin:2px;">
+                                <button class="btn btn-primary" id="btPesquisarFornecedor">Pesquisar</button>
+                                <a href="/Gerenciar-Fornecedor/Cadastrar" class="btn btn-default">Novo Fornecedor</a>
+                            </div>
+                        </div>
+                </div>
+
+                <table id="myTable" class="table table-striped jambo_table bulk_action">
+                    <thead>
+                        <tr>
+                            <th class="largura30">
+                                @Html.DisplayNameFor(model => model.RazaoSocial)
+                            </th>
+                            <th class="largura15 centro">
+                                @Html.DisplayNameFor(model => model.Fone)
+                            </th>
+                            <th class="largura15 centro">
+                                @Html.DisplayNameFor(model => model.Celular)
+                            </th>
+                            <th class="largura30">
+                                @Html.DisplayNameFor(model => model.NomeResponsavel)
+                            </th>
+                            <th class="langura10" >Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyTabelaFornecedor"></tbody>
+                </table>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.row -->

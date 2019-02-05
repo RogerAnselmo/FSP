@@ -1,0 +1,88 @@
+﻿@model IEnumerable<FSP.Engengaria.Core.Application.ViewModels.ObraViewModel>
+
+@{
+    ViewBag.Title = "Lista de Obras";
+}
+
+<script src="~/CoresJs/obra/Consulta.js"></script>
+
+<style type="text/css">
+    .btn {
+        border: 0 !important;
+        border-radius: 3px !important;
+        margin-top: 0px !important;
+    }
+
+    .box-footer {
+        background-color: transparent !important;
+        margin-top: 40px !important;
+    }
+</style>
+
+<!-- Info boxes -->
+<div class="row">
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+    <!-- /.col -->
+    <div class="col-md-12">
+        <h4>@ViewBag.Title</h4>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+        <!-- MAP & BOX PANE -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <div class="well" style="overflow: auto">
+                    <div class="form-group">
+                        <label class="control-label col-md-1" style="margin-top:1px; text-align:right">Obra:</label>
+                        <div class="col-md-6">
+                            <input name="obras" id="tbNomeObra" class="form-control" placeholder="Digite o nome da obra" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3" style="margin:2px;">
+                            <button class="btn btn-primary" id="btPesquisarObra">Pesquisar</button>
+                            <a href="/Gerenciar-Obra/Cadastrar" class="btn btn-default">Novo Obra</a>
+                        </div>
+                    </div>
+                </div>
+
+                <table id="myTable" class="table table-striped jambo_table bulk_action">
+                    <thead>
+                        <tr>
+                            <th class="largura20">
+                                @Html.DisplayNameFor(model => model.DescricaoObjeto)
+                            </th>
+                            <th class="largura20">
+                                @Html.DisplayNameFor(model => model.NomeObra)
+                            </th>
+                            <th class="largura15">
+                                @Html.DisplayNameFor(model => model.Endereco)
+                            </th>
+                            <th class="largura10 centro">
+                                @Html.DisplayNameFor(model => model.UF)
+                            </th>
+                            <th class="largura10 centro">
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th class="largura10' Centralizado">
+                                @Html.DisplayNameFor(model => model.DataInicio)
+                            </th>
+                            <th class="langura10">Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyTabelaObras"></tbody>
+                </table>
+                <!-- /.box-body -->
+                <br />
+                <div id="MontaTabelaObra"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /.row -->

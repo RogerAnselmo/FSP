@@ -1,0 +1,23 @@
+table.jambo_table {
+    border: 1px solid rgba(221,221,221,.78)
+}
+
+    table.jambo_table thead {
+        background: rgba(52,73,94,.94);
+        color: #ECF0F1
+    }
+
+    table.jambo_table tbody tr:hover td {
+        background: rgba(38,185,154,.07);
+        border-top: 1px solid rgba(38,185,154,.11);
+        border-bottom: 1px solid rgba(38,185,154,.11)
+    }
+
+    table.jambo_table tbody tr.selected {
+        background: rgba(38,185,154,.16)
+    }
+
+        table.jambo_table tbody tr.selected td {
+            border-top: 1px solid rgba(38,185,154,.4);
+            border-bottom: 1px solid rgba(38,185,154,.4)
+        }

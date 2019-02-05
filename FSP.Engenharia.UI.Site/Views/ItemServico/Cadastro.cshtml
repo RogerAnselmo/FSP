@@ -1,0 +1,147 @@
+﻿@model FSP.Engengaria.Core.Application.ViewModels.ItemServicoViewModel
+
+<script src="~/CoresJs/itemservico/Cadastro.js"></script>
+
+@{
+    ViewBag.Title = "Cadastro de Item(ns) do Serviço";
+}
+
+<style type="text/css">
+    .btn {
+        border: 0 !important;
+        border-radius: 3px !important;
+        margin-top: 0px !important;
+    }
+
+    .box-footer {
+        background-color: transparent !important;
+        margin-top: 40px !important;
+    }
+</style>
+<!-- Info boxes -->
+<div class="row">
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+    <!-- /.col -->
+    <div class="col-md-12">
+        <h4>@ViewBag.Title</h4>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+        <!-- MAP & BOX PANE -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <div class="info-box-content">
+                    <div id="wrapper" class="container">
+                        @using (Html.BeginForm("Salvar-ItemServico", "Gerenciar-ItemServico", FormMethod.Post, new { encType = "multipart/form-data", id = "FrmCadastroItemServico", name = "FrmCadastroItemServico" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group" style="display:none">
+                                <div class="col-md-8">
+                                    @Html.LabelFor(model => model.CodigoItemServico)
+                                    @Html.TextBoxFor(model => model.CodigoItemServico, new { placeholder = "Código do Item do Serviço", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CodigoItemServico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.CodigoObra)
+                                    @Html.DropDownListFor(model => model.CodigoObra, new List<SelectListItem>(ViewBag.Obras), "--Selecione--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CodigoObra, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.CodigoServico)
+                                    @Html.DropDownListFor(model => model.CodigoServico, new List<SelectListItem>(ViewBag.Servicos), "--Selecione--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CodigoServico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-1">
+                                    @Html.LabelFor(model => model.NumeroItem)
+                                    @Html.TextBoxFor(model => model.NumeroItem, new { placeholder = "Item", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NumeroItem, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-7">
+                                    @Html.LabelFor(model => model.DescricaoItem)
+                                    @Html.TextBoxFor(model => model.DescricaoItem, new { placeholder = "Descrição do Item", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DescricaoItem, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.DescricaoUnidade)
+                                    @Html.TextBoxFor(model => model.DescricaoUnidade, new { placeholder = "Unidade", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.DescricaoUnidade, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.ValorUnitario)
+                                    @Html.TextBoxFor(model => model.ValorUnitario, new { placeholder = "Valor Unitário", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.ValorUnitario, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="display:none">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.NumeroOrdem)
+                                    @Html.TextBoxFor(model => model.NumeroOrdem, new { placeholder = "Numero de Ordem", @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10 box-footer">
+                                    <button type="button" class="btn btn-success" id="btSalvarItemServico">Cadastrar</button>&nbsp;
+                                    <button type="button" class="btn btn-default" id="btLimparItemServico">Cancelar</button>&nbsp;
+                                    @*<a href="/Gerenciar-ItemServico/Consultar" class="btn btn-warning">Voltar</a>&nbsp;*@
+                                    <a href="/Home/Index" class="btn btn-warning">Voltar</a>&nbsp;
+                                </div>
+                            </div>
+                        }
+
+                        <table id="myTableItemServico" class="table table-striped jambo_table bulk_action">
+                            <thead>
+                                <tr>
+                                    <th class="largura10">
+                                        @Html.DisplayNameFor(model => model.NumeroItem)
+                                    </th>
+                                    <th class="largura40">
+                                        @Html.DisplayNameFor(model => model.DescricaoItem)
+                                    </th>
+                                    <th class="largura10">
+                                        @Html.DisplayNameFor(model => model.DescricaoUnidade)
+                                    </th>
+                                    <th class="largura15 centro">
+                                        @Html.DisplayNameFor(model => model.ValorUnitario)
+                                    </th>
+                                    <th class="langura10">Opções</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyTabelaItemServico"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

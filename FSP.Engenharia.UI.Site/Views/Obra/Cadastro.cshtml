@@ -1,0 +1,130 @@
+﻿@model FSP.Engengaria.Core.Application.ViewModels.ObraViewModel
+
+<script src="~/CoresJs/obra/Cadastro.js"></script>
+
+@{
+    ViewBag.Title = "Cadastro de Obras";
+}
+<!-- Info boxes -->
+<div class="row">
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+    <!-- /.col -->
+    <div class="col-md-12">
+        <h4>@ViewBag.Title</h4>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+        <!-- MAP & BOX PANE -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <div class="info-box-content">
+                    <div id="wrapper" class="container">
+                        @using (Html.BeginForm("Salvar-Obra", "Gerenciar-Obra", FormMethod.Post, new { encType = "multipart/form-data", id = "FrmCadastroObra", name = "FrmCadastroObra" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    @Html.LabelFor(model => model.DescricaoObjeto)
+                                    @Html.TextBoxFor(model => model.DescricaoObjeto, new { placeholder = "Descrição do objeto", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DescricaoObjeto, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.Status)
+                                    @Html.DropDownListFor(model => model.Status, new List<SelectListItem>(ViewBag.StatusObra), "--Selecione--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.NomeObra)
+                                    @Html.TextBoxFor(model => model.NomeObra, new { placeholder = "Nome da obra", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NomeObra, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.LabelFor(model => model.Endereco)
+                                    @Html.TextBoxFor(model => model.Endereco, new { placeholder = "Descrição do endereço", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.Bairro)
+                                    @Html.TextBoxFor(model => model.Bairro, new { placeholder = "Nome do bairro", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.UF)
+                                    @Html.DropDownListFor(model => model.UF, new List<SelectListItem>(ViewBag.Estados), "--Selecione--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UF, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.CEP)
+                                    @Html.TextBoxFor(model => model.CEP, new { placeholder = "Número do CEP", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.Cidade)
+                                    @Html.TextBoxFor(model => model.Cidade, new { placeholder = "Nome da cidade", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.DataInicio)
+                                    @Html.TextBoxFor(model => model.DataInicio, new { placeholder = "Data início", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.DataInicio, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.DataFim)
+                                    @Html.TextBoxFor(model => model.DataFim, new { placeholder = "Data fim", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.DataFim, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10 box-footer">
+                                    <button type="button" class="btn btn-success" id="btSalvarObra">Cadastrar</button>&nbsp;
+                                    <button type="button" class="btn btn-default" id="btLimparObra">Cancelar</button>&nbsp;
+                                    <a href="/Gerenciar-Obra/Consultar" class="btn btn-warning">Voltar</a>&nbsp;
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

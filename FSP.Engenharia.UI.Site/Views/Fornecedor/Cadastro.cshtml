@@ -1,0 +1,170 @@
+﻿@model FSP.Engengaria.Core.Application.ViewModels.FornecedorViewModel
+
+<script src="~/CoresJs/Fornecedor/Cadastro.js"></script>
+
+@{
+    ViewBag.Title = "Cadastro de Fornecedor";
+}
+<!-- Info boxes -->
+<div class="row">
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+    <!-- /.col -->
+    <div class="col-md-12">
+        <h4>@ViewBag.Title</h4>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+        <!-- MAP & BOX PANE -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <div class="info-box-content">
+                    <div id="wrapper" class="container">
+                        @using (Html.BeginForm("Salvar-Fornecedor", "Gerenciar-Fornecedor", FormMethod.Post, new { encType = "multipart/form-data", id = "FrmCadastroFornecedor", name = "FrmCadastroFornecedor" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group" style="display:none">
+                                <div class="col-md-8">
+                                    @Html.LabelFor(model => model.CodigoFornecedor)
+                                    @Html.TextBoxFor(model => model.CodigoFornecedor, new { placeholder = "Descrição do objeto", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CodigoFornecedor, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    @Html.LabelFor(model => model.RazaoSocial)
+                                    @Html.TextBoxFor(model => model.RazaoSocial, new { placeholder = "Razão Social do fornecedor", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.RazaoSocial, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    @Html.LabelFor(model => model.CNPJ)
+                                    @Html.TextBoxFor(model => model.CNPJ, new { placeholder = "CNPJ do fornecedor", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CNPJ, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-7">
+                                    @Html.LabelFor(model => model.Endereco)
+                                    @Html.TextBoxFor(model => model.Endereco, new { placeholder = "Descrição do endereço", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Endereco, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.Bairro)
+                                    @Html.TextBoxFor(model => model.Bairro, new { placeholder = "Nome do bairro", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Bairro, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.UF)
+                                    @Html.DropDownListFor(model => model.UF, new List<SelectListItem>(ViewBag.Estados), "--Selecione--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UF, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.CEP)
+                                    @Html.TextBoxFor(model => model.CEP, new { placeholder = "Número do CEP", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CEP, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-5">
+                                    @Html.LabelFor(model => model.Cidade)
+                                    @Html.TextBoxFor(model => model.Cidade, new { placeholder = "Nome da cidade", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Cidade, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-7">
+                                    @Html.LabelFor(model => model.NomeResponsavel)
+                                    @Html.TextBoxFor(model => model.NomeResponsavel, new { placeholder = "Nome do responsável", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.NomeResponsavel, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.Fone)
+                                    @Html.TextBoxFor(model => model.Fone, new { placeholder = "Nº do telefone", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.Fone, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.Celular)
+                                    @Html.TextBoxFor(model => model.Celular, new { placeholder = "Nº do celular", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.Celular, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.Banco)
+                                    @Html.TextBoxFor(model => model.Banco, new { placeholder = "Nome do banco", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.Banco, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.Agencia)
+                                    @Html.TextBoxFor(model => model.Agencia, new { placeholder = "Nº da agência", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.Agencia, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.ContaCorrente)
+                                    @Html.TextBoxFor(model => model.ContaCorrente, new { placeholder = "Nº da conta", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.ContaCorrente, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    @Html.LabelFor(model => model.TipoContaCorrente)
+                                    @Html.TextBoxFor(model => model.TipoContaCorrente, new { placeholder = "Tipo de conta", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.TipoContaCorrente, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10 box-footer">
+                                    <button type="button" class="btn btn-success" id="btSalvarFornecedor">Cadastrar</button>&nbsp;
+                                    <button type="button" class="btn btn-default" id="btLimparFornecedor">Cancelar</button>&nbsp;
+                                    <a href="/Gerenciar-Fornecedor/Consultar" class="btn btn-warning">Voltar</a>&nbsp;
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

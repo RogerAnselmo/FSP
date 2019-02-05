@@ -1,0 +1,83 @@
+﻿@model FSP.Engengaria.Core.Application.ViewModels.ServicoViewModel
+
+<script src="~/CoresJs/Servico/Cadastro.js"></script>
+
+@{
+    ViewBag.Title = "Cadastro de Serviços";
+}
+<!-- Info boxes -->
+<div class="row">
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+    <!-- /.col -->
+    <div class="col-md-12">
+        <h4>@ViewBag.Title</h4>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+        <!-- MAP & BOX PANE -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <div class="info-box-content">
+                    <div id="wrapper" class="container">
+                        @using (Html.BeginForm("Salvar-Servico", "Gerenciar-Servico", FormMethod.Post, new { encType = "multipart/form-data", id = "FrmCadastroServico", name = "FrmCadastroServico" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group" style="display:none">
+                                <div class="col-md-10">
+                                    @Html.LabelFor(model => model.CodigoServico)
+                                    @Html.TextBoxFor(model => model.CodigoServico, new { placeholder = "Código do seerviço", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CodigoServico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.LabelFor(model => model.DescricaoServico)
+                                    @Html.TextBoxFor(model => model.DescricaoServico, new { placeholder = "Descrição do seerviço", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DescricaoServico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    @Html.LabelFor(model => model.Percentual)
+                                    @Html.TextBoxFor(model => model.Percentual, new { placeholder = "Percentual do serviço", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.Percentual, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-3">
+                                    @Html.LabelFor(model => model.Valor)
+                                    @Html.TextBoxFor(model => model.Valor, new { placeholder = "Valor do serviço", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => Model.Valor, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10 box-footer">
+                                    <button type="button" class="btn btn-success" id="btSalvarServico">Cadastrar</button>&nbsp;
+                                    <button type="button" class="btn btn-default" id="btLimparServico">Cancelar</button>&nbsp;
+                                    <a href="/Gerenciar-Servico/Consultar" class="btn btn-warning">Voltar</a>&nbsp;
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

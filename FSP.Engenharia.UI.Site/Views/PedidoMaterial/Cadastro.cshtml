@@ -1,0 +1,171 @@
+﻿@model FSP.Engengaria.Core.Application.ViewModels.PedidoMaterialViewModel
+
+<script src="~/CoresJs/pedidomaterial/Cadastro.js"></script>
+
+@{
+    ViewBag.Title = "Cadastro de Pedido de Material";
+}
+
+<style type="text/css">
+    .btn {
+        border: 0 !important;
+        border-radius: 3px !important;
+        margin-top: 0px !important;
+    }
+
+    .box-footer {
+        background-color: transparent !important;
+        margin-top: 40px !important;
+    }
+</style>
+<!-- Info boxes -->
+<div class="row">
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+    <!-- /.col -->
+    <div class="col-md-12">
+        <h4>@ViewBag.Title</h4>
+    </div>
+</div>
+<!-- /.row -->
+<!-- Main row -->
+<div class="row">
+    <!-- Left col -->
+    <div class="col-md-12">
+        <!-- MAP & BOX PANE -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <div class="info-box-content">
+                    <div id="wrapper" class="container">
+                        @using (Html.BeginForm("Salvar-PedidoMaterial", "Gerenciar-PedidoMaterial", FormMethod.Post, new { encType = "multipart/form-data", id = "FrmCadastroPedidoMaterial", name = "FrmCadastroPedidoMaterial" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.CodigoPedido)
+                                    @Html.TextBoxFor(model => model.CodigoPedido, new { placeholder = "Código da Itenização", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CodigoPedido, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.DataPedido)
+                                    @Html.TextBoxFor(model => model.DataPedido, new { placeholder = "Data Pedido", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DataPedido, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.CodigoObra)
+                                    @Html.DropDownListFor(model => model.CodigoObra, new List<SelectListItem>(ViewBag.Obras), "--Selecione--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CodigoObra, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    @Html.LabelFor(model => model.CodigoServico)
+                                    <select class="form-control" id="CodigoServico"></select>
+                                    @Html.ValidationMessageFor(model => model.CodigoServico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <label>Descrição do Item</label>
+                                    <select class="form-control" id="CodigoItenizacao"></select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-1">
+                                    <label>Unid</label>
+                                    <input type="text" id="DescricaoUnidade" name="DescricaoUnidade" class="form-control" readonly />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label>Valor Unitário</label>
+                                    <input type="text" id="ValorUnitario" name="ValorUnitario" class="form-control" readonly />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    @Html.LabelFor(model => model.CodigoFornecedor)
+                                    @Html.DropDownListFor(model => model.CodigoFornecedor, new List<SelectListItem>(ViewBag.Fornecedores), "--Selecione--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CodigoFornecedor, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-1">
+                                    <label>Qtd</label>
+                                    <input type="text" id="Quantidade" name="Quantidade" class="form-control" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    <label>Valor Total</label>
+                                    <input type="text" id="ValorTotal" name="ValorTotal" class="form-control" readonly />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-1" style="margin-top:40px !important">
+                                    <button type="button" class="btn btn-primary" id="btAdicionarItem">Adicionar</button>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-10 box-footer">
+                                    <button type="button" class="btn btn-success" id="btSalvarPedidoMaterial">Cadastrar</button>&nbsp;
+                                    <button type="button" class="btn btn-default" id="btLimparPedidoMaterial">Cancelar</button>&nbsp;
+                                    <a href="/Gerenciar-PedidoMaterial/Consultar" class="btn btn-warning">Voltar</a>&nbsp;
+                                </div>
+                            </div>
+                        }
+
+                        <table id="myTablePedidoMaterial" class="table table-striped jambo_table bulk_action">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        INSUMO
+                                    </th>
+                                    <th>
+                                        UND
+                                    </th>
+                                    <th>
+                                        P.UNITARIO
+                                    </th>
+                                    <th>
+                                        FORNECEDOR
+                                    </th>
+                                    <th>
+                                        QTD
+                                    </th>
+                                    <th>
+                                        VALOR
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyTabelaPedidoMaterial"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
